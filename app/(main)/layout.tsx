@@ -10,13 +10,12 @@ type Props = {
 };
 
 const MainLayout = async ({ children }: Props) => {
-  const userProgressData = getUserProgress();
+  // const userProgressData = getUserProgress();
+  // const [userProgress] = await Promise.all([userProgressData]);
 
-  const [userProgress] = await Promise.all([userProgressData]);
-
-  if (!userProgress || !userProgress.activeCourse) {
-    redirect("/courses");
-  }
+  // if (!userProgress || !userProgress.activeCourse) {
+  //   redirect("/courses");
+  // }
   return (
     <>
       <MobileHeader />

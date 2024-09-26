@@ -16,6 +16,11 @@ export const List = ({ courses, activeCourseId }: Props) => {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
 
+  // if (activeCourseId === undefined) {
+  //   upsertUserProgress(1).catch(() => toast.error("Something went wrong."));
+  //   // return router.push("/learn")
+  // }
+
   const onClick = (id: number) => {
     if (pending) return;
 

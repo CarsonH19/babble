@@ -11,7 +11,6 @@ import { redirect } from "next/navigation";
 export const upsertUserProgress = async (courseId: number) => {
   const { userId } = await auth();
   const user = await currentUser();
-
   if (!userId || !user) {
     throw new Error("Unauthorized");
   }
