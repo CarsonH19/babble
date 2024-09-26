@@ -56,7 +56,7 @@ export const lessonsRelations = relations(lessons, ({ one, many }) => ({
 
 export const challengesEnum = pgEnum("type", ["SELECT", "ASSIST"]);
 
-export const challenges = pgTable("lessons", {
+export const challenges = pgTable("challenges", {
   id: serial("id").primaryKey(),
   lessonId: integer("lesson_id")
     .references(() => lessons.id, { onDelete: "cascade" })
