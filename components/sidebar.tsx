@@ -35,7 +35,7 @@ const Sidebar = ({ className }: Props) => {
         <SidebarItem label="Quests" href="/quests" iconSrc="/quests.svg" />
         <SidebarItem label="Shop" href="/shop" iconSrc="/shop.svg" />
       </div>
-      <div className="p-4 border border-red-500">
+      <div className="p-4">
         <ClerkLoading>
           <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
         </ClerkLoading>
