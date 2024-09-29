@@ -1,9 +1,15 @@
 import { getLesson, getUserProgress } from "@/db/queries";
 import { redirect } from "next/navigation";
-import Quiz from "./quiz";
+import Quiz from "../quiz";
 
-const LessonPage = async () => {
-  const lessonData = getLesson();
+type Props = {
+  params: {
+    lessonId: number;
+  };
+};
+
+const LessonPage = async ({ params }: Props) => {
+  const lessonData = getLesson(params.lessonId);
   const userProgressData = getUserProgress();
 
   const [lesson, userProgress] = await Promise.all([
@@ -26,7 +32,7 @@ const LessonPage = async () => {
       initialLessonChallenges={lesson.challenges}
       initialHearts={userProgress.hearts}
       initialPercentage={initialPercentage}
-      userSubscription={null}  // TODO add user subscription
+      userSubscription={null} // TODO add user subscription
     />
   );
 };
