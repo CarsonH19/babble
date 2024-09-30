@@ -11,6 +11,8 @@ import {
 } from "@/db/queries";
 import { redirect } from "next/navigation";
 import Unit from "./unit";
+import Promo from "@/components/promo";
+import Quests from "@/components/quests";
 
 const LearnPage = async () => {
   const userProgressData = getUserProgress();
@@ -43,7 +45,7 @@ const LearnPage = async () => {
 
   const isPro = !!userSubscription?.isActive;
   console.log("isPro", isPro);
-  console.log("currentEndPeriod", userSubscription?.stripeCurrentPeriodEnd)
+  console.log("currentEndPeriod", userSubscription?.stripeCurrentPeriodEnd);
 
   return (
     <div className="flex flex-row-reverse gap-[48px] px-6">
@@ -54,6 +56,8 @@ const LearnPage = async () => {
           points={userProgress.points}
           hasActiveSubscription={isPro}
         />
+        {!isPro && <Promo />}
+        <Quests points={userProgress.points} />
       </StickyWrapper>
       <FeedWrapper>
         <Header title={userProgress.activeCourse.title} />

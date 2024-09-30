@@ -5,29 +5,8 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import { Progress } from "@/components/ui/progress";
-
-const quests = [
-  {
-    title: "Earn 20XP",
-    value: 20,
-  },
-  {
-    title: "Earn 50XP",
-    value: 50,
-  },
-  {
-    title: "Earn 100XP",
-    value: 100,
-  },
-  {
-    title: "Earn 500XP",
-    value: 500,
-  },
-  {
-    title: "Earn 1000XP",
-    value: 1000,
-  },
-];
+import Promo from "@/components/promo";
+import { quests } from "@/constants";
 
 const QuestsPage = async () => {
   const userProgressData = getUserProgress();
@@ -53,6 +32,7 @@ const QuestsPage = async () => {
           points={userProgress.points}
           hasActiveSubscription={isPro}
         />
+        {!isPro && <Promo />}
       </StickyWrapper>
 
       <FeedWrapper>
@@ -83,7 +63,7 @@ const QuestsPage = async () => {
                     <p className="text-neutral-700 text-xl font-bold">
                       {quest.title}
                     </p>
-                    <Progress  value={progress} className="h-3"/>
+                    <Progress value={progress} className="h-3" />
                   </div>
                 </div>
               );
