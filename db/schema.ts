@@ -8,6 +8,7 @@ import {
   timestamp,
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
+// import { sql } from "drizzle-orm";
 
 export const courses = pgTable("courses", {
   id: serial("id").primaryKey(),
