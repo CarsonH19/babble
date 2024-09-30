@@ -1,25 +1,41 @@
 import StickyWrapper from "@/components/sticky-wrapper";
 import { UserProgress } from "@/components/user-progress";
 import FeedWrapper from "@/components/feed-wrapper";
-import {
-  getTopTenUsers,
-  getUserProgress,
-  getUserSubscription,
-} from "@/db/queries";
+import { getUserProgress, getUserSubscription } from "@/db/queries";
 import { redirect } from "next/navigation";
 import Image from "next/image";
-import { Separator } from "@/components/ui/separator";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Progress } from "@/components/ui/progress";
 
-const LeaderboardPage = async () => {
+const quests = [
+  {
+    title: "Earn 20XP",
+    value: 20,
+  },
+  {
+    title: "Earn 50XP",
+    value: 50,
+  },
+  {
+    title: "Earn 100XP",
+    value: 100,
+  },
+  {
+    title: "Earn 500XP",
+    value: 500,
+  },
+  {
+    title: "Earn 1000XP",
+    value: 1000,
+  },
+];
+
+const QuestsPage = async () => {
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
-  const leaderboardData = getTopTenUsers();
 
-  const [userProgress, userSubscription, leaderboard] = await Promise.all([
+  const [userProgress, userSubscription] = await Promise.all([
     userProgressData,
     userSubscriptionData,
-    leaderboardData,
   ]);
 
   if (!userProgress || !userProgress.activeCourse) {
@@ -41,38 +57,42 @@ const LeaderboardPage = async () => {
 
       <FeedWrapper>
         <div className="w-full flex flex-col items-center">
-          <Image
-            src="/leaderboard.svg"
-            alt="Leaderboard"
-            height={90}
-            width={90}
-          />
+          <Image src="/quests.svg" alt="Quests" height={90} width={90} />
           <h1 className="text-center font-bold text-neutral-800 text-2xl my-6">
-            Leaderboard
+            Quests
           </h1>
           <p className="text-muted-foreground text-center text-lg mb-6">
-            See where you stand among other learners in the community.
+            Complete quests by earning points.
           </p>
-          <Separator className="mb-4 h-0.5 rounded-full" />
-          {leaderboard.map((userProgress, index) => (
-            <div
-              key={userProgress.userId}
-              className="flex items-center w-full p-2 px-4 rouded-xl hover:bg-gray-200/50"
-            >
-              <p className="font-bold text-lime-700 mr-4">{index + 1}</p>
-              <Avatar className="border bg-green-500 h-12 w-12 ml-3 mr-6">
-                <AvatarImage src={userProgress.userImageSrc} />
-              </Avatar>
-              <p className="font-bold text-neutral-800 flex-1">
-                {userProgress.userName}
-              </p>
-              <p className="text-muted-foreground">{userProgress.points} XP</p>
-            </div>
-          ))}
+          <ul className="w-full">
+            {quests.map((quest) => {
+              const progress = (userProgress.points / quest.value) * 100;
+
+              return (
+                <div
+                  className="flex items-center w-full p-4 gap-x-4 border-t-2"
+                  key={quest.title}
+                >
+                  <Image
+                    src="/points.svg"
+                    alt="Points"
+                    height={60}
+                    width={60}
+                  />
+                  <div className="flex flex-col gap-y-2 w-full">
+                    <p className="text-neutral-700 text-xl font-bold">
+                      {quest.title}
+                    </p>
+                    <Progress  value={progress} className="h-3"/>
+                  </div>
+                </div>
+              );
+            })}
+          </ul>
         </div>
       </FeedWrapper>
     </div>
   );
 };
 
-export default LeaderboardPage;
+export default QuestsPage;
