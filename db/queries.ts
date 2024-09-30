@@ -230,6 +230,7 @@ export const getUserSubscription = cache(async () => {
     where: eq(userSubscription.userId, userId),
   });
 
+  // TODO: Find solution for Invalid Date DrizzleORM error
   console.log("data", data);
 
   if (!data) return null;
