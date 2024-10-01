@@ -8,6 +8,10 @@ body,
   @apply h-full
 }
 
+h1, h2, h3, h4, h5, p {
+  color: black;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
