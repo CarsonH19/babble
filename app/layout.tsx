@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${font.className} antialiased`}>
+        <body className={`${font.className} antialiased bg-white`}>
           <Toaster />
           <ExitModal />
           <HeartsModal />
@@ -33,3 +33,4 @@ export default function RootLayout({
     </ClerkProvider>
   );
 }
+
