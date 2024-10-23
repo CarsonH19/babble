@@ -2,10 +2,11 @@
 
 Babble is a dynamic language learning app featuring leaderboards, quests, and a shop to gamify the experience and enhance user engagement.
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Why 
 I built Babble because I was once an ESL teacher and have a passion for learning. My goal is to incorporate my knowledge and enthusiasm for education into a project that showcases my expertise in both frontend and backend technologies.
+
+## Live Site
+https://babble-seven.vercel.app/
 
 ## Features
 - **User Authentication:** Secure login through Clerk.
