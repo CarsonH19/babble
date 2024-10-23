@@ -1,4 +1,17 @@
+# Babble
+
+Babble is a dynamic language learning app featuring leaderboards, quests, and a shop to gamify the experience and enhance user engagement.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Features
+- **User Authentication:** Secure login through Clerk.
+- **Course Selection:** Choose from multiple languages to learn.
+- **Leaderboard:** Compete with other users and track your progress.
+- **In-App Shop:** Purchase items to enhance your learning experience.
+- **Quests:** Complete quests for rewards and motivation.
+- **Audio & Visual Effects:** Engaging multimedia elements to enhance learning.
+- **Premium Version:** Upgrade for unlimited hearts, allowing for continuous learning without interruptions.
 
 ## Getting Started
 
