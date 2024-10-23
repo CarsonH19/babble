@@ -17,6 +17,13 @@ https://babble-seven.vercel.app/
 - **Audio & Visual Effects:** Engaging multimedia elements to enhance learning.
 - **Premium Version:** Upgrade for unlimited hearts, allowing for continuous learning without interruptions.
 
+## Contact
+Feel free to reach out if you have any questions or opportunities!
+
+- Email: carsonharp.fullstack@gmail.com
+- GitHub: https://github.com/CarsonH19
+- LinkedIn: https://www.linkedin.com/in/carson-harp-fullstack
+
 ## Getting Started
 
 First, run the development server:
